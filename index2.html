@@ -12,12 +12,6 @@
     <!-- control panel on the left -->
     <nav id="controls">
 
-        <div class="radioButtons" style="margin-top: 15px;">
-            <label><input id="beginner" type="radio" class="radioButton" name="boardSize" value="0"><span>Beginner</span></label>
-            <label><input id="intermediate" type="radio" class="radioButton" name="boardSize" value="1"><span>Intermediate</span></label>
-            <label><input id="expert" type="radio" class="radioButton" name="boardSize" value="2" checked><span>Expert</span></label>
-        </div>
-
         <div style="margin-top: 1em; display: none;" class="radioButtons" id="analysis0">
             <label><input id="buildHidden" type="radio" class="radioButton" name="buildType" value="hidden"><span>Build all hidden</span></label>
             <label><input id="buildZero" type="radio" class="radioButton" name="buildType" value="zero" checked><span>Build all zero</span></label>
@@ -89,74 +83,21 @@
     <script type="text/javascript">
         function apply() {
 
-            if (document.getElementById("beginner").checked) {
-                doNewGame(9, 9, 10);
-                return;
-            }
-
-            if (document.getElementById("intermediate").checked) {
-                doNewGame(16, 16, 40);
-                return;
-            }
-
-            if (document.getElementById("expert").checked) {
-                doNewGame(30, 16, 99);
-                return;
-            }
-
-            const MAX_WIDTH = 200;
-            const MAX_HEIGHT = 200;
-
-            var widthX = document.getElementById("width").value;
-            var heightX = document.getElementById("height").value;
-            var minesX = document.getElementById("mines").value;
-
-            if (isNaN(widthX)) {
-                return;
-            }
-            if (isNaN(heightX)) {
-                return;
-            }
-            if (isNaN(minesX)) {
-                return;
-            }
-
-            var width = Number(widthX);
-            var height = Number(heightX);
-            var mines = Number(minesX);
-
-            if (width < 1) {
-                document.getElementById("width").value = 1
-                width = 1;
-            }
-
-            if (width > MAX_WIDTH) {
-                document.getElementById("width").value = MAX_WIDTH;
-                width = MAX_WIDTH;
-            }
-
-            if (height < 1) {
-                document.getElementById("height").value = 1
-                height = 1;
-            }
-
-            if (height > MAX_HEIGHT) {
-                document.getElementById("height").value = MAX_HEIGHT;
-                height = MAX_HEIGHT;
-            }
-
-            if (mines < 1) {
-                document.getElementById("mines").value = 1;
-                mines = 1;
-            }
-
-            if (mines > width * height - 1) {
-                document.getElementById("mines").value = width * height - 1;
-                mines = width * height - 1;
-            }
-
-            doNewGame(width, height, mines);
-
+            // if (document.getElementById("beginner").checked) {
+            //     doNewGame(9, 9, 10);
+            //     return;
+            // }
+            //
+            // if (document.getElementById("intermediate").checked) {
+            //     doNewGame(16, 16, 40);
+            //     return;
+            // }
+            //
+            // if (document.getElementById("expert").checked) {
+            //     doNewGame(30, 16, 99);
+            //     return;
+            // }
+            doNewGame(9, 9, 10);
         }
 
         function doNewGame(width, height, mines) {

@@ -134,7 +134,8 @@ async function startup() {
         await newGame(gameDescription.width, gameDescription.height, gameDescription.mines, gameDescription.seed);
 
     } else {
-        await newGame(30, 16, 99, seed); // default to a new expert game
+
+        await newGame(9, 9, 10, seed); // default to a new beginner game
     }
 
     setInterval(checkBoard, 1000);
