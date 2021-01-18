@@ -34,11 +34,6 @@ var winner;
 var boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
-document.getElementById('size-btns').addEventListener('click', function(e) {
-  size = parseInt(e.target.id.replace('size-', ''));
-  init();
-  render();
-});
 
 boardEl.addEventListener('click', function(e) {
   if (winner || hitBomb) return;
