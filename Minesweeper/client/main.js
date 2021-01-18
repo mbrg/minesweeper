@@ -57,7 +57,6 @@ var seedText = document.getElementById("seed");
 var gameTypeSafe = document.getElementById("gameTypeSafe");
 var gameTypeZero = document.getElementById("gameTypeZero");
 var analysisModeButton = document.getElementById("analysismode");
-var analysisButton = document.getElementById("AnalysisButton");
 var lockMineCount = document.getElementById("lockMineCount");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
@@ -477,16 +476,7 @@ function checkBoard() {
     console.log("Checking board with hash " + currentBoardHash);
 
     board.findAutoMove();
-    var solutionCounter = solver.countSolutions(board);
     board.resetForAnalysis();
-
-    if (solutionCounter.finalSolutionsCount != 0) {
-        analysisButton.disabled = false;
-        showMessage("The board has " + solutionCounter.finalSolutionsCount + " possible solutions");
-    } else {
-        analysisButton.disabled = true;
-        showMessage("The board is in an invalid state");
-    }
 
 }
 
