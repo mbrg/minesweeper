@@ -51,12 +51,14 @@ docMinesLeft.height = DIGIT_HEIGHT;
 
 var tooltip = document.getElementById('tooltip');
 var showHintsCheckBox = document.getElementById("showhints");
-var docPlayStyle = document.getElementById("playstyle");
-var docTileSize = document.getElementById("tilesize");
 
 var analysisMode = false;
 var previousBoardHash = 0;
 var justPressedAnalyse = false;
+
+// fixed arguments
+var docPlayStyle = "flag";
+var docTileSize = "24"; // tile size in pixels
 
 // add a listener for when the client exists the page
 
@@ -299,8 +301,7 @@ async function newGame(width, height, mines, seed) {
         board = new Board(id, width, height, mines, seed, gameType);
     }
 
-    TILE_SIZE = parseInt(docTileSize.value);
-
+    TILE_SIZE = parseInt(docTileSize);
 
     // make the canvases large enough to fit the game
     var boardWidth = width * TILE_SIZE;
@@ -419,9 +420,9 @@ function doAnalysis() {
     if (solutionCounter.finalSolutionsCount != 0) {
 
         var options = {};
-        if (docPlayStyle.value == "flag") {
+        if (docPlayStyle == "flag") {
             options.playStyle = PLAY_STYLE_FLAGS;
-        } else if (docPlayStyle.value == "noflag") {
+        } else if (docPlayStyle == "noflag") {
             options.playStyle = PLAY_STYLE_NOFLAGS;
         } else {
             options.playStyle = PLAY_STYLE_EFFICIENCY;
@@ -947,9 +948,9 @@ async function sendActionsMessage(message) {
         document.getElementById("canvas").style.cursor = "wait";
 
         var options = {};
-        if (docPlayStyle.value == "flag") {
+        if (docPlayStyle == "flag") {
             options.playStyle = PLAY_STYLE_FLAGS;
-        } else if (docPlayStyle.value == "noflag") {
+        } else if (docPlayStyle == "noflag") {
             options.playStyle = PLAY_STYLE_NOFLAGS;
         } else {
             options.playStyle = PLAY_STYLE_EFFICIENCY;
