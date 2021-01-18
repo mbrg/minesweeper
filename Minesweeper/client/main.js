@@ -58,7 +58,6 @@ var gameTypeSafe = document.getElementById("gameTypeSafe");
 var gameTypeZero = document.getElementById("gameTypeZero");
 var analysisModeButton = document.getElementById("analysismode");
 var analysisButton = document.getElementById("AnalysisButton");
-var title = document.getElementById("title");
 var lockMineCount = document.getElementById("lockMineCount");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
@@ -300,10 +299,8 @@ async function newGame(width, height, mines, seed) {
     }
 
     if (analysisModeButton.checked) {
-        title.innerHTML = "Minesweeper analyser";
         analysisMode = true;
     } else {
-        title.innerHTML = "Minesweeper player";
         analysisMode = false;
     }
 
