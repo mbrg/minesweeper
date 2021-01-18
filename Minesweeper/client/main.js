@@ -53,12 +53,9 @@ var tooltip = document.getElementById('tooltip');
 var autoPlayCheckBox = document.getElementById("autoplay");
 var showHintsCheckBox = document.getElementById("showhints");
 var acceptGuessesCheckBox = document.getElementById("acceptguesses");
-var gameTypeSafe = document.getElementById("gameTypeSafe");
-var gameTypeZero = document.getElementById("gameTypeZero");
 var lockMineCount = document.getElementById("lockMineCount");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
-var docFastPlay = document.getElementById("fastPlay");
 
 var analysisMode = false;
 var previousBoardHash = 0;
@@ -286,11 +283,8 @@ async function newGame(width, height, mines, seed) {
     console.log("<== " + JSON.stringify(reply));
     var id = reply.id;
 
-    if (gameTypeZero.checked) {
-        var gameType = "zero";
-    } else {
-        var gameType = "safe";
-    }
+    // if (gameTypeZero.checked) {
+    var gameType = "zero";
 
     analysisMode = false;
 
@@ -937,7 +931,7 @@ async function sendActionsMessage(message) {
 
     var solverStart = Date.now();
 
-    var assistedPlay = docFastPlay.checked;
+    var assistedPlay = false; //docFastPlay.checked;
     var assistedPlayHints;
     if (assistedPlay) {
         assistedPlayHints = board.findAutoMove();
