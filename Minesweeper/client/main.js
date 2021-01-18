@@ -53,7 +53,6 @@ var tooltip = document.getElementById('tooltip');
 var autoPlayCheckBox = document.getElementById("autoplay");
 var showHintsCheckBox = document.getElementById("showhints");
 var acceptGuessesCheckBox = document.getElementById("acceptguesses");
-var lockMineCount = document.getElementById("lockMineCount");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
 
@@ -593,8 +592,9 @@ function on_click(event) {
                 tile.foundBomb = true;  // in analysis mode we believe the flags are mines
             }
 
-            // if we have locked the mine count then adjust the bombs left 
-            if (lockMineCount.checked) {
+            // if we have locked the mine count then adjust the bombs left
+            var lockMineCount = false; // fix lockMineCount to false
+            if (lockMineCount) {
                 if (delta == 1 && board.bombs_left == 0) {
                     showMessage("Can't reduce mines to find to below zero whilst the mine count is locked");
                     return;
