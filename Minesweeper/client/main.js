@@ -58,7 +58,6 @@ var gameTypeSafe = document.getElementById("gameTypeSafe");
 var gameTypeZero = document.getElementById("gameTypeZero");
 var analysisModeButton = document.getElementById("analysismode");
 var analysisButton = document.getElementById("AnalysisButton");
-var messageLine = document.getElementById("messageLine");
 var title = document.getElementById("title");
 var lockMineCount = document.getElementById("lockMineCount");
 var docPlayStyle = document.getElementById("playstyle");
@@ -1184,5 +1183,5 @@ function load_images() {
 }
 
 function showMessage(text) {
-    messageLine.innerText = text;
+    console.log(text);
 }
