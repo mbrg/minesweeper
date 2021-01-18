@@ -64,11 +64,6 @@ var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
 var docFastPlay = document.getElementById("fastPlay");
 
-// elements used in the local storage modal
-var localStorageButton = document.getElementById("localStorageButton");
-var localStorageModal = document.getElementById("localStorage");
-var localStorageSelection = document.getElementById("localStorageSelection");
-
 var analysisMode = false;
 var previousBoardHash = 0;
 var justPressedAnalyse = false;
@@ -80,10 +75,6 @@ var justPressedAnalyse = false;
 function exiting(event) {
 
     console.log("exiting...");
-
-    if (currentGameDescription != null) {
-        //localStorage.setItem(GAME_DESCRIPTION_KEY, JSON.stringify(currentGameDescription));
-    }
 
     if (board != null) {
         killGame(board.getID());
@@ -101,12 +92,6 @@ async function startup() {
     console.log("At start up...");
 
     const urlParams = new URLSearchParams(window.location.search);
-    const testParm = urlParams.get('test');
-    if (testParm == "y") {
-        localStorageButton.style.display = "block";
-    } else {
-        localStorageButton.style.display = "none";
-    }
 
     const rngParm = urlParams.get('rng');
     if (rngParm == "old") {
@@ -148,7 +133,7 @@ async function startup() {
 
     docMinesLeft.addEventListener('wheel', (event) => on_mouseWheel_minesLeft(event));
 
-    currentGameDescription = localStorage.getItem(GAME_DESCRIPTION_KEY);
+    currentGameDescription = null;
 
     // initialise the solver
     solver();
@@ -174,62 +159,6 @@ async function startup() {
 
     showMessage("Welcome to minesweeper solver dedicated to Annie");
 }
-
-// launch a floating window to store/retrieve from local storage
-function openLocalStorage() {
-
-    console.log("There are " + localStorage.length + " items in local storage");
-
-    // remove all the options from the selection
-    localStorageSelection.length = 0;
-
-    // iterate localStorage
-    for (var i = 0; i < localStorage.length; i++) {
-
-        // set iteration key name
-        var key = localStorage.key(i);
-
-        var option = document.createElement("option");
-        option.text = key;
-        option.value = key;
-        localStorageSelection.add(option);
-
-        // use key name to retrieve the corresponding value
-        var value = localStorage.getItem(key);
-
-        // console.log the iteration key and value
-        console.log('Key: ' + key + ', Value: ' + value);
-
-    }
-
-    localStorageModal.style.display = "block";
-
-}
-
-function closeLocalStorage() {
-
-    localStorageModal.style.display = "none";
-
-}
-
-function saveLocalStorage() {
-
-    key = localStorageSelection.value;
-
-    console.log("Saving board position to local storage key '" + key + "'");
-
-}
-
-function loadLocalStorage() {
-
-
-}
-
-function fetchLocalStorage() {
-
-
-}
-
 
 
 // render an array of tiles to the canvas
@@ -1023,7 +952,7 @@ async function sendActionsMessage(message) {
 
         // if the current game is no longer in play then no need to remember the games details
         currentGameDescription = null;
-        localStorage.removeItem(GAME_DESCRIPTION_KEY);
+
 
         showMessage("The game has been " + reply.header.status + ". 3BV: " + value3BV + ",  Actions: " + actionsMade + ",  Efficiency: " + efficiency);
         return;
