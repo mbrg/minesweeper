@@ -13,12 +13,7 @@
     <nav id="controls">
 
         <div id="play0" style="margin-top: 15px;">
-            <div class="checkboxes">
-                <label><input type="checkbox" class="checkbox" id="useSeed" /> <span>Use seed</span></label>
-            </div>
-            <div>
-                <input id="seed" type="text" style="width: 150px" />
-            </div>
+
 
             <div class="checkboxes">
                 <label><input type="checkbox" class="checkbox" id="gameTypeZero" checked /> <span>Opening on start</span></label>
@@ -184,13 +179,7 @@
         }
 
         function doNewGame(width, height, mines) {
-
-            if (document.getElementById("useSeed").checked) {
-                newGame(width, height, mines, document.getElementById("seed").value);
-            } else {
-                newGame(width, height, mines, 0);
-            }
-
+            newGame(width, height, mines, 0);
         }
 
     </script>

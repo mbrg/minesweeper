@@ -53,7 +53,6 @@ var tooltip = document.getElementById('tooltip');
 var autoPlayCheckBox = document.getElementById("autoplay");
 var showHintsCheckBox = document.getElementById("showhints");
 var acceptGuessesCheckBox = document.getElementById("acceptguesses");
-var seedText = document.getElementById("seed");
 var gameTypeSafe = document.getElementById("gameTypeSafe");
 var gameTypeZero = document.getElementById("gameTypeZero");
 var lockMineCount = document.getElementById("lockMineCount");
@@ -99,10 +98,7 @@ async function startup() {
     var seed = urlParams.get('seed');
     if (seed == null) {
         seed = 0;
-    } else {
-        seedText.value = seed;
     }
-
     var start = urlParams.get('start');
 
 
@@ -842,7 +838,6 @@ async function sendActionsMessage(message) {
     if (board.seed == 0) {
         board.seed = reply.header.seed;
         console.log("Setting game seed to " + reply.header.seed);
-        seedText.value = board.seed;
     }
 
     if (reply.header.status == "lost") { 
