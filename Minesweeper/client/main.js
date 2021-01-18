@@ -56,7 +56,6 @@ var acceptGuessesCheckBox = document.getElementById("acceptguesses");
 var seedText = document.getElementById("seed");
 var gameTypeSafe = document.getElementById("gameTypeSafe");
 var gameTypeZero = document.getElementById("gameTypeZero");
-var analysisModeButton = document.getElementById("analysismode");
 var lockMineCount = document.getElementById("lockMineCount");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
@@ -297,11 +296,7 @@ async function newGame(width, height, mines, seed) {
         var gameType = "safe";
     }
 
-    if (analysisModeButton.checked) {
-        analysisMode = true;
-    } else {
-        analysisMode = false;
-    }
+    analysisMode = false;
 
     var drawTile = HIDDEN;
     if (analysisMode) {

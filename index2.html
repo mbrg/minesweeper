@@ -12,10 +12,6 @@
     <!-- control panel on the left -->
     <nav id="controls">
 
-        <div class="checkboxes">
-            <label><input type="checkbox" class="checkbox" id="analysismode" onclick="setAnalysis()" /> <span>Analysis mode</span></label>
-        </div>
-
         <div id="play0" style="margin-top: 15px;">
             <div class="checkboxes">
                 <label><input type="checkbox" class="checkbox" id="useSeed" /> <span>Use seed</span></label>
@@ -103,7 +99,6 @@
 
     <script src="Minesweeper/client/Board.js" type="text/javascript"></script>
     <script src="Minesweeper/client/Tile.js" type="text/javascript"></script>
-
     <script src="Minesweeper/client/solver_main.js" type="text/javascript"></script>
     <script src="Minesweeper/client/solver_probability_engine.js" type="text/javascript"></script>
     <script src="Minesweeper/client/Brute_force.js" type="text/javascript"></script>
@@ -194,24 +189,6 @@
                 newGame(width, height, mines, document.getElementById("seed").value);
             } else {
                 newGame(width, height, mines, 0);
-            }
-
-        }
-
-        function setAnalysis() {
-
-            if (document.getElementById("analysismode").checked) {
-                document.getElementById("play0").style.display = "none";
-                document.getElementById("play1").style.display = "none";
-                document.getElementById("analysis0").style.display = "block";
-                document.getElementById("analysis1").style.display = "block";
-                document.getElementById("NewGame").innerHTML = "Reset board";
-            } else {
-                document.getElementById("play0").style.display = "block";
-                document.getElementById("play1").style.display = "block";
-                document.getElementById("analysis0").style.display = "none";
-                document.getElementById("analysis1").style.display = "none";
-                document.getElementById("NewGame").innerHTML = "New game";
             }
 
         }
