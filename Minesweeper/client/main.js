@@ -50,7 +50,6 @@ docMinesLeft.width = DIGIT_WIDTH * DIGITS;
 docMinesLeft.height = DIGIT_HEIGHT;
 
 var tooltip = document.getElementById('tooltip');
-var autoPlayCheckBox = document.getElementById("autoplay");
 var showHintsCheckBox = document.getElementById("showhints");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
@@ -943,7 +942,7 @@ async function sendActionsMessage(message) {
     }
 
     // do we want to show hints
-    if (showHintsCheckBox.checked || autoPlayCheckBox.checked || assistedPlayHints.length != 0) {
+    if (showHintsCheckBox.checked || assistedPlayHints.length != 0) {
 
         document.getElementById("canvas").style.cursor = "wait";
 
@@ -975,7 +974,7 @@ async function sendActionsMessage(message) {
         //setTimeout(function () { window.requestAnimationFrame(() => renderHints(hints)) }, 10);  // wait 10 milliseconds to prevent a clash with the renderTiles redraw
         window.requestAnimationFrame(() => renderHints(hints));
 
-        if (autoPlayCheckBox.checked || assistedPlay) {
+        if (assistedPlay) {
             if (hints.length > 0 && (hints[0].prob == 1 || hints[0].prob == 0)) {
                 var message = buildMessageFromActions(hints, true);  // send all safe actions
 
