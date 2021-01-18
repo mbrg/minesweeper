@@ -52,7 +52,6 @@ docMinesLeft.height = DIGIT_HEIGHT;
 var tooltip = document.getElementById('tooltip');
 var autoPlayCheckBox = document.getElementById("autoplay");
 var showHintsCheckBox = document.getElementById("showhints");
-var acceptGuessesCheckBox = document.getElementById("acceptguesses");
 var docPlayStyle = document.getElementById("playstyle");
 var docTileSize = document.getElementById("tilesize");
 
@@ -984,7 +983,7 @@ async function sendActionsMessage(message) {
 
                 setTimeout(function () { sendActionsMessage(message) }, wait);
 
-            } else if (hints.length > 0 && acceptGuessesCheckBox.checked) { // if we are accepting guesses
+            } else if (hints.length > 0 && false) { // acceptGuessesCheckBox is fixed to false
 
                 var hint = [];
                 hint.push(hints[0]);
