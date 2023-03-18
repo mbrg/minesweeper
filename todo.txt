@@ -1,0 +1,20 @@
+<!--    <div>-->
+<!--        <table id="board">-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <td class="menu" id="window-title-bar" colspan="${size}">-->
+<!--                        <div id="window-title"><img src="images/mine-menu-icon.png"> Minesweeper</div>-->
+<!--                        <div id="window-controls"><img src="images/window-controls.png"></div>-->
+<!--                    </td>-->
+<!--                <tr>-->
+<!--                    <td class="menu" colspan="${size}">-->
+<!--                        <section id="status-bar">-->
+<!--                            <div id="bomb-counter">000</div>-->
+<!--                            <div id="reset"><img src="images/smiley-face.png"></div>-->
+<!--                            <div id="timer">000</div>-->
+<!--                        </section>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
